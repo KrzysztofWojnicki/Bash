@@ -1,0 +1,23 @@
+#!/bin/bash
+
+
+#cd ~/TEST/
+#. test6.sh
+hero
+sleep 1
+
+cd ~/....../Heroes\ of\ Might\ and\ Magic\ III\ Complete/
+
+wine Heroes3.exe
+
+i=$(ps -au | grep -i heroes.exe | grep -v grep)
+
+while [ ! -z "$i" ]; do
+echo dzila
+done
+cd ~/
+
+xrand-default 
+#cd ~/TEST/
+#. test6.1.sh 
+
