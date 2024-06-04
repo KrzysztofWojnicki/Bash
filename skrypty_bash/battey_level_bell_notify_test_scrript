@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# short script to notify by the wav.file when battery level reaches certain value
+
+# value on which the events will be executed
+value=60
+#
+## while the bettery level is above set point the command will wait with next command
+while [ $(cat /sys/class/power_supply/BAT0/capacity) -gt $value  ];
+do    
+# 	sleep 1 
+#	
+#done
+#
+## if batter capacity is below appointed level the sound will play for desired time
+#if [[ $(cat /sys/class/power_supply/BAT0/capacity) -lt $value ]]
+#then
+#	# echo below is just for research :)
+	echo $(cat  /sys/class/power_supply/BAT0/voltage_now) - $(cat /sys/class/power_supply/BAT0/capacity) - $(date +%X) >> ~/info.bat
+	sleep 1
+#	timeout 20 cvlc --loop ~/Downloads/mixkit-church-bell-loop-621.wav  
+#fi 
+done

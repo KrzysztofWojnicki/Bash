@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# short proram for diagnostic purposes
+
+# value on which the events will be executed
+value=47
+#
+## while the bettery level is above set point the command will wait with next command
+while [ $(cat /sys/class/power_supply/BAT0/capacity) -gt $value  ];
+do    
+	# puts data into a file in 10sec interwals
+	echo $(cat  /sys/class/power_supply/BAT0/voltage_now) - $(cat /sys/class/power_supply/BAT0/capacity) - $(date +%X) >> ~/info.bat
+	sleep 10
+done
